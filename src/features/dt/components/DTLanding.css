@@ -1,0 +1,703 @@
+/* ========================================
+   DTLanding - Modo DT Landing Page Styles
+   ======================================== */
+
+/* ========================================
+   Layout Principal
+   ======================================== */
+
+.dt-landing {
+  min-height: 100vh;
+  background: #0a0a0f;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+/* ========================================
+   Header / Banner
+   ======================================== */
+
+.dt-landing__header {
+  position: relative;
+  padding: 3rem 1rem 1rem;
+  text-align: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.dt-landing__header-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 230, 0, 0.1) 0%, transparent 100%);
+}
+
+.dt-landing__header-glow-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10rem;
+  height: 10rem;
+  background: rgba(255, 230, 0, 0.15);
+  border-radius: 50%;
+  filter: blur(50px);
+}
+
+.dt-landing__header-glow-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(14, 165, 233, 0.15);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.dt-landing__logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  box-shadow: var(--shadow-glow);
+  margin-bottom: 0.5rem;
+  transition: var(--transition-base);
+}
+
+.dt-landing__logo:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.dt-landing__logo svg {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.dt-landing__title {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.125rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+.dt-landing__subtitle {
+  position: relative;
+  color: var(--color-primary-lighter);
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.dt-landing__description {
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  max-width: 18rem;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* ========================================
+   Contenido Principal
+   ======================================== */
+
+.dt-landing__content {
+  position: relative;
+  padding: 0 0.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .dt-landing__content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dt-landing__content {
+    width: 100%;
+    gap: 0.875rem;
+  }
+}
+
+/* ========================================
+   Cards
+   ======================================== */
+
+.dt-card {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid #2a2a3a;
+  background: #12121a;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.dt-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.dt-card:hover::before {
+  opacity: 1;
+}
+
+.dt-card:active {
+  transform: scale(0.98);
+}
+
+/* Card Variants */
+.dt-card--primary {
+  background: #12121a;
+  border-color: #FFE600;
+}
+
+.dt-card--primary:hover {
+  background: #1a1a24;
+  border-color: #FFE600;
+  box-shadow: 0 0 20px rgba(255, 230, 0, 0.2);
+}
+
+.dt-card--disabled {
+  background: rgba(26, 26, 36, 0.5);
+  border-color: rgba(42, 42, 58, 0.2);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dt-card--disabled:active {
+  transform: none;
+}
+
+.dt-card--blue {
+  background: #12121a;
+  border-color: #2a2a3a;
+}
+
+.dt-card--blue:hover {
+  background: #1a1a24;
+  border-color: #FFE600;
+}
+
+.dt-card--amber {
+  background: #12121a;
+  border-color: #2a2a3a;
+}
+
+.dt-card--amber:hover {
+  background: #1a1a24;
+  border-color: #FFE600;
+}
+
+/* Card Content */
+.dt-card__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dt-card__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.dt-card:hover .dt-card__icon {
+  transform: scale(1.1);
+}
+
+.dt-card__icon--primary {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  box-shadow: 0 4px 15px rgba(255, 230, 0, 0.4);
+}
+
+.dt-card__icon--disabled {
+  background: #374151;
+}
+
+.dt-card__icon--blue {
+  background: linear-gradient(135deg, #FFE600 0%, #0047AB 100%);
+  box-shadow: 0 4px 15px rgba(255, 230, 0, 0.4);
+}
+
+.dt-card__icon--amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.dt-card__icon svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  color: white;
+}
+
+.dt-card__icon--disabled svg {
+  color: #6b7280;
+}
+
+.dt-card__text {
+  flex: 1;
+  text-align: left;
+}
+
+.dt-card__title {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.125rem;
+}
+
+.dt-card__description {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.dt-card__badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.dt-card__badge--success {
+  background: rgba(255, 230, 0, 0.2);
+  color: #FFE600;
+}
+
+.dt-card__badge--error {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+/* Card Grid */
+.dt-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+
+@media (min-width: 640px) {
+  .dt-card-grid {
+    gap: 0.75rem;
+  }
+}
+
+.dt-card-grid .dt-card {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dt-card-grid .dt-card__icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dt-card-grid .dt-card__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.dt-card-grid .dt-card__title {
+  font-size: 0.8125rem;
+}
+
+.dt-card-grid .dt-card__description {
+  font-size: 0.6875rem;
+}
+
+/* ========================================
+   Carreras Activas
+   ======================================== */
+
+.dt-careers__header {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.dt-careers__header svg {
+  color: var(--color-primary-light);
+}
+
+.dt-careers__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dt-career-card {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  background: #12121a;
+  border: 1px solid #2a2a3a;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.dt-career-card:hover {
+  background: #1a1a24;
+  border-color: #FFE600;
+  transform: translateY(-2px);
+}
+
+.dt-career-card:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.dt-career-card__content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dt-career-card__flag {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  box-shadow: var(--dt-shadow);
+  flex-shrink: 0;
+}
+
+.dt-career-card__info {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.dt-career-card__name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dt-career-card__stats {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+}
+
+.dt-career-card__stat {
+  font-weight: 700;
+}
+
+.dt-career-card__stat--win {
+  color: var(--color-primary-lighter);
+}
+
+.dt-career-card__stat--draw {
+  color: #facc15;
+}
+
+.dt-career-card__stat--loss {
+  color: #f87171;
+}
+
+.dt-career-card__stat--divider {
+  color: var(--text-tertiary);
+}
+
+.dt-career-card__stat--total {
+  color: var(--text-secondary);
+}
+
+.dt-career-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.dt-career-card__play {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--dt-shadow);
+  transition: var(--transition-fast);
+}
+
+.dt-career-card__play:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 230, 0, 0.5);
+}
+
+.dt-career-card__play svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: white;
+  margin-left: 0.125rem;
+}
+
+.dt-career-card__delete {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.dt-career-card__delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.dt-career-card__delete svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: #f87171;
+}
+
+/* ========================================
+   Stats Summary
+   ======================================== */
+
+.dt-stats {
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  background: #12121a;
+  border: 1px solid #2a2a3a;
+}
+
+.dt-stats__title {
+  color: var(--text-secondary);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.625rem;
+}
+
+.dt-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.dt-stat {
+  text-align: center;
+}
+
+.dt-stat__value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  font-size: 1.125rem;
+  font-weight: 900;
+  margin-bottom: 0.125rem;
+}
+
+.dt-stat__value svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.dt-stat__value--green {
+  color: var(--color-primary-lighter);
+}
+
+.dt-stat__value--blue {
+  color: #FFE600;
+}
+
+.dt-stat__value--amber {
+  color: #fbbf24;
+}
+
+.dt-stat__label {
+  color: var(--text-tertiary);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ========================================
+   Back Button (Top Left)
+   ======================================== */
+
+.dt-btn-back {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  background: #12121a;
+  border: 1px solid #2a2a3a;
+  color: #a0a0b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  z-index: 100;
+  cursor: pointer;
+}
+
+.dt-btn-back:hover {
+  background: #1a1a24;
+  border-color: #FFE600;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.dt-btn-back:active {
+  transform: scale(0.95);
+}
+
+.dt-btn-back svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: var(--transition-fast);
+}
+
+.dt-btn-back:hover svg {
+  transform: translateX(-2px);
+}
+
+/* ========================================
+   Animaciones
+   ======================================== */
+
+/* Animaciones desactivadas temporalmente */
+/* @keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+/* ========================================
+   Scrollbar personalizada
+   ======================================== */
+
+.dt-landing::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dt-landing::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dt-landing::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 3px;
+}
+
+.dt-landing::-webkit-scrollbar-thumb:hover {
+  background: #333344;
+}
+
+/* ========================================
+   Responsive Desktop
+   ======================================== */
+
+@media (min-width: 1024px) {
+  .dt-landing__header {
+    padding: 2rem 1rem 1.25rem;
+  }
+
+  .dt-landing__title {
+    font-size: 1.75rem;
+  }
+
+  .dt-landing__subtitle {
+    font-size: 1rem;
+  }
+
+  .dt-landing__description {
+    font-size: 0.875rem;
+    max-width: 20rem;
+  }
+
+  .dt-card__title {
+    font-size: 1rem;
+  }
+
+  .dt-card__description {
+    font-size: 0.8125rem;
+  }
+
+  .dt-stats__title {
+    font-size: 0.75rem;
+  }
+
+  .dt-stat__value {
+    font-size: 1.375rem;
+  }
+
+  .dt-stat__label {
+    font-size: 0.625rem;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

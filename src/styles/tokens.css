@@ -1,0 +1,290 @@
+/* ============================================
+   SISTEMA DE DISEÑO - QUINIELA MUNDIAL 2026
+   Tokens globales para toda la aplicación
+   ============================================ */
+
+:root {
+  /* COLORS - Brand (Paleta XBuyer: Azul y Amarillo) */
+  --color-primary: #0047AB;
+  --color-primary-dark: #003380;
+  --color-primary-darker: #00255C;
+  --color-primary-light: #FFE600;
+  --color-primary-lighter: #FFF200;
+  --color-primary-muted: #1e3a5f;
+
+  /* COLORS - Secondary (Azul Cielo) */
+  --color-secondary: #0ea5e9;
+  --color-secondary-dark: #0284c7;
+  --color-secondary-light: #38bdf8;
+
+  /* COLORS - Accent (Amarillo XBuyer) */
+  --color-accent: #FFE600;
+  --color-accent-dark: #E6CF00;
+  --color-accent-light: #FFF200;
+
+  /* COLORS - Semantic */
+  --color-success: #0047AB;
+  --color-success-light: #3B82F6;  /* TODO: Update to lighter XBuyer blue */
+  --color-warning: #FFE600;
+  --color-warning-light: #FFF200;
+  --color-error: #ef4444;
+  --color-error-light: #f87171;
+  --color-info: #0047AB;
+  --color-live: #FFE600;
+
+  /* COLORS - State variations */
+  --color-qualified: var(--color-primary-light);
+  --color-playoff: #facc15;
+  --color-eliminated: var(--color-error);
+
+  /* COLORS - Backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a24;
+  --bg-elevated: #222230;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* COLORS - Text */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-tertiary: #6b6b7b;
+  --text-muted: #4a4a5a;
+
+  /* COLORS - Borders */
+  --border-primary: #2a2a3a;
+  --border-secondary: #333344;
+  --border-focus: var(--color-primary);
+
+  /* ALIASES - Para migración (mapeo de valores hardcodeados comunes) */
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --surface-dark: #141414;
+  --surface-card: #1a1a1a;
+  --surface-elevated: #1f1f1f;
+
+  /* SPACING - Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* SPACING - Layout */
+  --page-padding: 16px;
+  --section-gap: 24px;
+  --card-padding: 16px;
+
+  /* TYPOGRAPHY - Font Family */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* TYPOGRAPHY - Sizes */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+
+  /* TYPOGRAPHY - Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-black: 800;
+
+  /* TYPOGRAPHY - Line Heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* BORDER RADIUS */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+
+  /* SHADOWS */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(0, 71, 171, 0.4);
+  --shadow-glow-accent: 0 0 15px rgba(255, 230, 0, 0.3);
+
+  /* TRANSITIONS */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Z-INDEX */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-secondary);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn var(--transition-base);
+}
+.animate-slideUp {
+  animation: slideUp var(--transition-base);
+}
+.animate-slideInRight {
+  animation: slideInRight var(--transition-base);
+}
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(18, 18, 26, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-primary);
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
