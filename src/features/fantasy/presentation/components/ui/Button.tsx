@@ -77,13 +77,6 @@ export function Button({
     },
   };
   
-  // Hover/active states via CSS
-  const hoverStyles: CSSProperties = {
-    ':hover': {
-      opacity: disabled || isLoading ? 0.5 : 0.9,
-    } as any,
-  };
-  
   return (
     <button
       className={`btn btn-${variant} btn-${size}`}
